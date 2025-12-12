@@ -1,2 +1,156 @@
-# configcc
-configurable close case
+# ConfigCC - Configurable Close Case
+
+An AutoHotkey utility script for automatically closing cases in your case management system with customizable settings and hotkeys.
+
+## Overview
+
+ConfigCC provides a streamlined way to close multiple cases efficiently using configurable hotkeys and predefined settings. This is particularly useful for teams that need to process large volumes of cases quickly while maintaining consistency in how cases are closed.
+
+## Features
+
+- **Configurable Hotkeys**: Define custom keyboard shortcuts to close cases
+- **Settings File**: Easy configuration via `settings.ini` file
+- **Case Status Management**: Automatically set case status and other properties
+- **Batch Processing**: Process multiple cases with minimal effort
+- **Customizable Close Reasons**: Define various reasons for closing cases
+- **Lightweight**: Minimal resource usage while running
+
+## Requirements
+
+- AutoHotkey v1.1 or later
+- Windows operating system
+- Access to your case management application
+
+## Installation
+
+1. Install [AutoHotkey](https://www.autohotkey.com/) (v1.1 or later)
+2. Download or clone this repository
+3. Run `configurable close case.ahk`
+4. Edit `settings.ini` to customize your configuration
+5. Restart the script to apply changes
+
+## Configuration
+
+The script is configured via the `settings.ini` file located in the same directory as the script.
+
+### Settings File Structure
+
+```ini
+[settings]
+; Add your custom settings here
+; Configure hotkeys, case closure options, and other parameters
+```
+
+### Customizing Hotkeys
+
+Edit the script to define your preferred hotkeys for closing cases:
+
+```ahk
+; Example: Close case with Ctrl+Alt+C
+^!c::
+    ; Case closure logic here
+return
+```
+
+## Usage
+
+1. **Start the Script**: Double-click `configurable close case.ahk`
+2. **Open Case Management System**: Launch your application
+3. **Use Hotkeys**: Press your configured hotkey to close the current case
+4. **Review Settings**: Modify `settings.ini` to change behavior
+
+## File Structure
+
+```
+configcc/
+├── configurable close case.ahk    # Main script file
+├── settings.ini                   # Configuration file
+└── README.md                      # This file
+```
+
+## Hotkeys
+
+| Hotkey | Action |
+|--------|--------|
+| (Configurable) | Close current case |
+| (Configurable) | Close case with reason 1 |
+| (Configurable) | Close case with reason 2 |
+
+*Note: Check your script for specific hotkey assignments*
+
+## How It Works
+
+1. The script monitors for hotkey presses
+2. When a hotkey is pressed, it reads the active window
+3. It sends commands to close the case using your configured settings
+4. Case details are updated based on `settings.ini` configuration
+5. Script logs actions for review (optional)
+
+## Troubleshooting
+
+### "Settings.ini not found"
+- Ensure `settings.ini` is in the same directory as the script
+- Create a new `settings.ini` with default settings
+
+### Hotkey not working
+- Check that the script is running (AutoHotkey icon in system tray)
+- Verify the case management application is the active window
+- Some applications may block automated input
+
+### Cases not closing
+- Check `settings.ini` for correct configuration
+- Verify your account has permission to close cases
+- Some case management systems may have validation rules preventing closure
+
+## Advanced Usage
+
+### Custom Close Reasons
+
+You can define multiple close reasons in `settings.ini`:
+
+```ini
+[CloseReasons]
+Reason1=Resolved
+Reason2=Duplicate
+Reason3=Invalid
+```
+
+### Logging
+
+Enable logging in `settings.ini` to track which cases were closed:
+
+```ini
+[Logging]
+Enabled=1
+LogFile=case_closure_log.txt
+```
+
+## Limitations
+
+- Requires AutoHotkey to be running
+- Some applications may block automated input for security reasons
+- Case management system must support the configured closure method
+- No built-in undo feature - once a case is closed, it must be reopened manually
+
+## Future Improvements
+
+- [ ] Add confirmation dialog before closing cases
+- [ ] Implement undo functionality
+- [ ] Add case closure history/audit log
+- [ ] Support for multiple case management systems
+- [ ] GUI settings editor instead of INI file
+- [ ] Batch close multiple selected cases
+- [ ] Integration with notification systems
+- [ ] Custom validation rules
+
+## License
+
+Free to use and modify
+
+## Disclaimer
+
+This script is provided as-is. The author is not responsible for any cases closed incorrectly or unintended actions. Always test thoroughly in a non-production environment first, and ensure you have proper backups of your case data before using this automation tool.
+
+## Support
+
+For issues or feature requests, please create an issue on the GitHub repository.
